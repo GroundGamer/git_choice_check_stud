@@ -1,0 +1,58 @@
+{% extends 'layout/question_basic.html' %}
+{% load static %}
+
+{% block title %}Страница обновления вопроса{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3>Обновить вопрос</h3>
+        Название темы: {{ form.header }}
+        <fieldset>
+            {{ question_form.management_form }}
+            {{ question_form.non_form_errors }}
+            <div class="inline {{ question_form.prefix }}">
+                {% for form in question_form %}
+                    <p>Вопрос: {{ form.question }}</p>
+                {% endfor %}
+            </div>
+        </fieldset>
+        <button class="btn btn-success" type="submit" name="submit">Обновить</button>
+    </form>
+        <style>
+        .add-row{
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            bottom: 10px;
+            left: 115px;
+            padding: 0;
+            background: url('{% static 'main/add_question.png' %}') center no-repeat;
+        }
+        .delete-row{
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            background: url('{% static 'main/delete_question.png' %}') center no-repeat;
+        }
+        .dynamic-form{
+            margin: 10px 10px 10px 63px;
+        }
+        </style>
+        <script type="text/javascript">
+        $(function() {
+            $(".inline.{{ question_form.prefix }}").formset({
+                prefix: "{{ question_form.prefix }}",
+                uiText: {
+                    addPrompt: '',
+                    removePrompt: ''
+                },
+                addCssClass: 'add-row btn',
+                deleteCssClass: 'delete-row btn',
+                formCssClass: 'dynamic-form',
+            })
+        })
+        </script>
+    {% endif %}
+{% endblock %}

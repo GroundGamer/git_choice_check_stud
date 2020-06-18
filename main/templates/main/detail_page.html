@@ -1,0 +1,20 @@
+{% extends 'layout/question_basic.html' %}
+
+{% block title %}{{ header_check.header }}{% endblock %}
+
+{% block content %}
+    <h1 class="centerWindow">{{ header_check.header }}</h1>
+    <hr>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Введите свое ФИО: <input type="text" name="FIO"></p>
+        {% for question in question_check %}
+            <div class="detail">
+                <p>Вопрос: {{ question.question }}</p>
+                <p>Ответ: {{ form.answer }}</p>
+            </div>
+        {% endfor %}
+        <button class="btn btn-success" type="submit" name="submit">Добавить</button>
+    </form>
+
+{% endblock %}

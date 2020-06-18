@@ -1,0 +1,57 @@
+{% load bootstrap4 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Главная{% endblock %} - генератор тестов</title>
+        {% bootstrap_css %}
+        <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+        {% bootstrap_javascript jquery='slim' %}
+    </head>
+    <body class="container-fluid">
+        <div class="page">
+            <header class="mb-4">
+                <h1 class="display-1 text-center">ВКУиНТ</h1>
+            </header>
+            <div class="row">
+                <ul class="col nav justify-content-end border">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Профиль</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'main:show_page_question' %}">Ваши вопросы</a>
+                            <a class="dropdown-item" href="{% url 'main:add_question' %}">Добавить вопрос</a>
+                            <a class="dropdown-item" href="{% url 'main:static_page_answer' %}">Статистика по вопросам</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'main:logout_teach' %}">Выйти</a>
+                        </div>
+                    </li>
+                    {% else %}
+                        <a href="{% url 'main:index' %}">Выход на авторизацию.</a>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="row">
+                <nav class="col-md-auto nav flex-column border">
+                    <a class="nav-link root" href="{% url 'main:stud' %}">Главная</a>
+                    <a class="nav-link root" href="{% url 'main:about' %}">О сайте</a>
+                </nav>
+                <section class="col border py-2">
+                    {% bootstrap_messages %}
+                    {% block content %}
+                    {% endblock %}
+                </section>
+            </div>
+            <footer class="footer">
+                <p class="text-right font-italic">&copy; Egor P., 2020г. ВКУиНТ</p>
+            </footer>
+        </div>
+
+
+
+
+        <script src="{% static 'dynamic_formsets/jquery.formset.js' %}"></script>
+    </body>
+</html>

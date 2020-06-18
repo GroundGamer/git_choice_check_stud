@@ -1,0 +1,20 @@
+{% extends 'layout/question_basic.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% for question in questions %}
+            {% for file in files_text %}
+                {% if file.file_text_key.id == question.id %}
+                    <h1 class="centerWindow">{{ question.header }} - {{ file.username }}</h1>
+                    <hr>
+                    {% for key, value in dict_answer.items %}
+                        <p>{{ key }} - {{ value }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+

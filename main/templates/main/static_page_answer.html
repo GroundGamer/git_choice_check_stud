@@ -1,0 +1,23 @@
+{% extends 'layout/question_basic.html' %}
+
+{% block title %}Статистика по вопросам{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1 class="centerWindow">Статистика по вопросам</h1>
+        <hr>
+        {% if questions %}
+            {% for question in questions %}
+                <div>
+                    {% for file in files_text %}
+                        {% if file.file_text_key.id == question.id %}
+                            <h3><a href="{% url 'main:static_detail_page' file.file_text_key.id file.pk %}">{{ question.header }} - {{ file.username }}</a></h3>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="centerWindow">В данный момент, здесь нету записей!</h3>
+        {% endif %}
+    {% endif %}
+{% endblock %}

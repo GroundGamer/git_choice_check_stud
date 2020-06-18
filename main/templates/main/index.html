@@ -1,0 +1,18 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Выбор пользователя{% endblock %}
+
+{% block content %}
+    <div class="choice">
+        <form action="{% url 'main:user_choice' %}">
+            <h2 class="select_title">Выберите пользователя</h2>
+            <select name="user_choice" class="select_user">
+                <option disabled="true" selected>--- Пользователь ---</option>
+                <option>Студент</option>
+                <option>Преподователь</option>
+            </select>
+            <br>
+            <input type="submit" value="Перейти" class="btn btn-secondary btn-pos-index">
+        </form>
+    </div>
+{% endblock %}

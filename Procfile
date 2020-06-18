@@ -1,0 +1,1 @@
+web: gunicorn choice_check_stud.wsgi --log-file -

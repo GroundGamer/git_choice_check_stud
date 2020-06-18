@@ -1,0 +1,24 @@
+{% extends 'layout/question_basic.html' %}
+
+{% block title %}Ваши вопросы{% endblock %}
+
+{% block content %}
+    <div>
+        <h1 class="centerWindow">Ваши вопросы</h1>
+        <hr>
+        {% if user.is_authenticated %}
+            {% if questions|length > 0 %}
+                {% for question in questions %}
+                        <div class="task">
+                            <h3><a href="{% url 'main:detail' pk=question.id %}">{{ question.header }}</a></h3>
+                            <p>Автор: {{ question.author }}</p>
+                            <a href="{%  url 'main:update_question' question.id %}" class="btn btn-primary receive">Обновить</a>
+                            <a href="{%  url 'main:delete_question' question.id %}" class="btn btn-danger receive">Удалить</a>
+                        </div>
+                {% endfor %}
+            {% else %}
+                <h3 class="centerWindow">В данный момент, здесь нету записей!</h3>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='slim' %}
+        <meta charset="UTF-8" http-equiv="Content-Type" content="text/html">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/style.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Главная страница{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

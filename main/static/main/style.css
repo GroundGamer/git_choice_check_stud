@@ -1,0 +1,129 @@
+/*All*/
+.centerWindow {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.task{
+    margin-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 10px
+}
+
+.receive{
+    font-size: 14px;
+    width: 125px;
+    padding: 2px;
+}
+
+.btn-add-question{
+    padding-right: 1000px;
+}
+
+.page{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.footer{
+    margin-top: auto;
+    background-color: #292929;
+    color:white;
+}
+
+/*All - end*/
+
+/*Index*/
+
+.choice{
+     position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 100px;
+     left: 0;
+     width: 430px;
+     height: 100px;
+}
+
+.choice select {
+    padding: .75rem 1rem .75rem 1rem;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #444;
+    text-align-last: center;
+    text-align: center;
+}
+
+.select_title{
+    width: 463px;
+}
+
+.select_user{
+    margin-bottom: 20px;
+    margin-left: 90px;
+}
+
+.btn-pos-index {
+    margin-top: 10px;
+    margin-left: 125px;
+    width: 100px;
+}
+
+/*Index - end*/
+
+/*Teach*/
+.auth-form{
+     position: absolute;
+     margin: auto;
+     top: 0;
+     right: 0;
+     bottom: 100px;
+     left: -190px;
+     width: 100px;
+     height: 100px;
+}
+
+.auth-label{
+     margin-left: 34px;
+     margin-bottom: 0;
+     width: 200px;
+}
+
+.success_auth_text{
+     margin-left: 64px;
+     margin-bottom: 0;
+     width: 200px;
+}
+
+.btn-pos{
+    margin-top: 10px;
+    margin-left: 62px;
+    width: 112px;
+    cursor: pointer;
+}
+
+.btn-pos-auth{
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 112px;
+    cursor: pointer;
+}
+
+.btn-pos-back {
+    margin-top: 10px;
+    margin-left: 62px;
+    position: absolute;
+    width: 112px;
+    left: 114px;
+    top: 112px;
+}
+
+/*Teach - end*/

@@ -1,0 +1,30 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+    <div class="auth-form">
+        <h1 class="auth-label">Авторизация</h1>
+        {% if user.is_authenticated %}
+            <p class="success_auth_text">Вы уже выполнили вход.</p>
+            <a href="{% url 'main:stud' %}" class="btn btn-secondary btn-pos-auth">Назад</a>
+        {% else %}
+            <form method="post">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                      <td>Логин:</td>
+                      <td>{{ form.username }}</td>
+                    </tr>
+                    <tr>
+                      <td>Пароль:</td>
+                      <td>{{ form.password }}</td>
+                    </tr>
+                </table>
+                <input type="submit" value="Вход" class="btn btn-secondary btn-pos"/>
+                <a href="{% url 'main:index' %}" class="btn btn-secondary btn-pos-back">Назад</a>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+        {% endif %}
+    </div>
+{% endblock %}
